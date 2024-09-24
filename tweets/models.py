@@ -10,6 +10,9 @@ class Tweet(models.Model):
     def __str__(self):
         return self.payload
 
+    def like_count(self):
+        return self.likes.count()
+
 
 class Like(models.Model):
     user = models.ForeignKey("user.User", on_delete=models.CASCADE)
