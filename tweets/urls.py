@@ -1,11 +1,11 @@
 from django.urls import path
-from . import views
+from .views import TweetList, UserTweetList
 
 urlpatterns = [
-    path("api/v1/tweets", views.tweet_list, name="tweet_list"),
+    path("api/v1/tweets", TweetList.as_view(), name="api_tweet_list"),
     path(
         "api/v1/users/<int:user_id>/tweets",
-        views.user_tweet_list,
-        name="user_tweet_list",
+        UserTweetList.as_view(),
+        name="api_user_tweets",
     ),
 ]
